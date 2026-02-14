@@ -1,54 +1,155 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>小雪儿，情人节快乐！</title>
+<meta charset="utf-8">
+<title>致我最爱的雪儿 ❤️</title>
+
 <style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: "微软雅黑", sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-    overflow: hidden;
-    text-align: center;
-    color: #fff;
-  }
-  .container {
-    opacity: 0;
-    animation: fadeIn 2s forwards;
-  }
-  @keyframes fadeIn {
-    to { opacity: 1; }
-  }
-  img {
-    max-width: 80%;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    box-shadow: 0 0 30px rgba(0,0,0,0.2);
-  }
-  h1 {
-    font-size: 2em;
-    margin: 10px 0;
-  }
-  p {
-    font-size: 1.2em;
-    margin: 5px 0;
-  }
+body{
+    margin:0;
+    padding:0;
+    font-family:"Microsoft YaHei";
+    text-align:center;
+    color:white;
+    overflow-x:hidden;
+    background: linear-gradient(-45deg,#ff9a9e,#fad0c4,#fbc2eb,#a18cd1);
+    background-size:400% 400%;
+    animation:bgMove 15s ease infinite;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.container{
+    margin-top:50px;
+    padding:20px;
+    animation:fadeIn 3s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(30px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+img{
+    width:300px;
+    border-radius:20px;
+    box-shadow:0 0 25px rgba(255,255,255,0.9);
+    margin-top:20px;
+    animation:photoBreath 4s infinite ease-in-out;
+}
+
+@keyframes photoBreath{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.05);}
+    100%{transform:scale(1);}
+}
+
+p{
+    font-size:18px;
+    line-height:1.8;
+    max-width:650px;
+    margin:20px auto;
+}
+
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    background:white;
+    color:#ff4d6d;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+/* 漂浮爱心 */
+.heart{
+    position:fixed;
+    bottom:-10px;
+    color:white;
+    font-size:20px;
+    animation:floatUp linear infinite;
+}
+
+@keyframes floatUp{
+    0%{transform:translateY(0) rotate(0deg); opacity:1;}
+    100%{transform:translateY(-100vh) rotate(360deg); opacity:0;}
+}
 </style>
 </head>
+
 <body>
-  <div class="container">
-    <img src="photo.jpg" alt="小雪儿和我">
-    <h1>小雪儿，情人节快乐！💖</h1>
-    <p>我们结婚于 2025年4月2日</p>
-    <p>你性格温柔可人，纯欲靓丽</p>
-    <p>我最想对你说：</p>
-    <h1>希望我们今后的每一天都是幸福顺利的</h1>
-  </div>
+
+<div class="container">
+<h1>❤️ 致我最爱的雪儿 ❤️</h1>
+
+<p>
+2025年4月2日，是我们人生中最重要的一天。  
+那一天，你成为了我的妻子，也成为了我这一生最坚定的温柔。
+</p>
+
+<p>
+你温柔可人，纯欲靓丽。  
+在我眼里，你永远是那个让我一眼心动、百看不厌的女孩。  
+有你在的地方，连空气都变得温柔。
+</p>
+
+<p>
+我们虽然还没有孩子，  
+但是会一直拥有彼此。  
+我们可以慢慢走，慢慢爱，慢慢看着孩子长大  
+把平凡的每一天，都过成只属于我们的幸福。
+</p>
+
+<p>
+我最想对你说：  
+<strong>希望我们今后的每一天，都是幸福顺利的。</strong>  
+未来很长，我会牵着你，一直走到白头。
+</p>
+
+<img src="photo.jpg" alt="我们的合照">
+
+<br><br>
+
+<button onclick="loveExplosion()">
+点我一下看看奇迹 ❤️
+</button>
+
+</div>
+
+<script>
+// 自动生成漂浮爱心
+function createHeart(){
+    const heart=document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(Math.random()*3+3)+"s";
+    heart.style.fontSize=(Math.random()*20+15)+"px";
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },6000);
+}
+setInterval(createHeart,500);
+
+// 点击爆炸爱心
+function loveExplosion(){
+    for(let i=0;i<30;i++){
+        createHeart();
+    }
+    alert("雪儿，我永远爱你 ❤️能不能穿下丝袜😍");
+}
+</script>
+
 </body>
 </html>
